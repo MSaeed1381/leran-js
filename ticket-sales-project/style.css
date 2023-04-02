@@ -1,0 +1,46 @@
+* {
+  font-size: 1rem;
+  font-family: "Comic Sans MS", serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(images/backgroundImage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 3rem;
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+.input-form {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+.input {
+  display: inline-flex;
+  width: 25rem;
+  height: 2.5rem;
+  margin: 1rem;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  padding-left: 1rem;
+}
+
+.btn {
+  margin: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */
