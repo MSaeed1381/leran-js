@@ -1,0 +1,2 @@
+simple-login-image/.idea
+simple-login-image/node_modules
