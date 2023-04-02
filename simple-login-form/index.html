@@ -8,11 +8,13 @@
 <body>
 <form class="login-form">
     <label for="username">
-        <input type="text" value="username" id="username" class="input">
+        <input type="text" placeholder="username" id="username" class="input" onkeydown="usernameKeyPress()">
     </label>
+    <span class="error-message"></span>
     <label for="password">
-        <input type="password" value="password" id="password" class="input">
+        <input type="password" placeholder="password" id="password" class="input" onkeydown="passwordKeyPress()">
     </label>
+    <span class="error-message"></span>
 
     <label for="button">
         <input type="button" value="Login" id="button" onclick="validate()">
