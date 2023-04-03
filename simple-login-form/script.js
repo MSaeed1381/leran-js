@@ -5,8 +5,8 @@ let passwordInput = $.getElementById('password');
 let modal = $.getElementsByClassName('modal-massage')[0]
 let loginBtn = $.getElementById('button');
 loginBtn.addEventListener('click', validate)
-usernameInput.addEventListener('keydown', usernameKeyPress)
-passwordInput.addEventListener('keydown', passwordKeyPress)
+usernameInput.addEventListener('keyup', usernameKeyPress)
+passwordInput.addEventListener('keyup', passwordKeyPress)
 
 let backgroundRandomColor = $.querySelector('.random-color');
 setInterval(function (){
@@ -31,7 +31,7 @@ function validate(){
 
 function usernameKeyPress(){
     let errorMessage = $.getElementsByClassName('error-message')[0]
-    if (usernameInput.value.length < 11){
+    if (usernameInput.value.length < 12){
         errorMessage.innerText = "invalid password (at least 12 characters)";
     } else {
         errorMessage.innerText = "";
@@ -41,7 +41,7 @@ function usernameKeyPress(){
 
 function passwordKeyPress(){
     let errorMessage = $.getElementsByClassName('error-message')[1]
-    if (passwordInput.value.length < 7){
+    if (passwordInput.value.length < 8){
         errorMessage.innerText = "invalid password (at least 8 characters)";
     } else {
         errorMessage.innerText = "";
