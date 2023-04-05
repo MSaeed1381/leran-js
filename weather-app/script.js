@@ -4,6 +4,9 @@ let $ = document;
 
 let searchIcon = $.querySelector('.search-icon');
 let searchBox = $.getElementById('search-box');
+let convertIcon, temperatureContent, cityInformation;
+let isCelsius = true;
+let currentTemperature;
 let informationContent = $.querySelector('.information-content');
 let cities = {
     tehran: {
@@ -35,7 +38,7 @@ function generateRandom(start, end){
 
 searchIcon.addEventListener('click', function (){
     let city = searchBox.value.toString().toLowerCase();
-    let cityInformation = cities[city];
+    cityInformation = cities[city];
     informationContent.innerText = '';
     informationContent.classList.add('white-color');
     searchBox.value = '';
@@ -46,9 +49,18 @@ searchIcon.addEventListener('click', function (){
         title.innerText = `Weather in ${city}`;
         informationContent.appendChild(title);
 
-        let temperatureContent = $.createElement('h2');
+        let degreeContent = $.createElement('div');
+        degreeContent.classList.add('degree-content');
+
+        temperatureContent = $.createElement('h2');
         temperatureContent.innerText = `${cityInformation.temperature}'C`;
-        informationContent.appendChild(temperatureContent);
+
+        convertIcon = $.createElement('img');
+        convertIcon.classList.add('image-icon');
+        convertIcon.setAttribute('src', 'images/convert.png');
+
+        degreeContent.append(convertIcon, temperatureContent);
+        informationContent.appendChild(degreeContent);
 
         let weatherDiv = $.createElement('div');
         weatherDiv.classList.add('weather-content');
@@ -72,9 +84,36 @@ searchIcon.addEventListener('click', function (){
         windSpeedContent.innerText = `windSpeed: ${cityInformation.windSpeed} km/h`;
         windSpeedContent.classList.add('small-font');
         informationContent.appendChild(windSpeedContent);
+        currentTemperature = cityInformation.temperature;
+
+        console.log(convertIcon);
+        convertIcon?.addEventListener('click', function (){
+            console.log("salam")
+            if (isCelsius){
+                temperatureContent.innerText = `${C2F(currentTemperature)}'F`;
+            }else{
+                temperatureContent.innerText = `${F2C(currentTemperature)}'C`;
+            }
+            isCelsius = !isCelsius;
+        })
+
     } else{
         informationContent.innerHTML = 'not found!';
     }
-
 })
+
+function C2F(temp){
+    currentTemperature = Math.round((temp * 1.8 + 32)*100)/100;
+    return currentTemperature;
+}
+
+function F2C(temp){
+    currentTemperature = Math.round((((temp - 32) * 5) / 9)*100)/100;
+    return currentTemperature;
+}
+
+
+
+
+
 

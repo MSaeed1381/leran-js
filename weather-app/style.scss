@@ -74,7 +74,18 @@ body {
 
 .weather-content {
   display: flex;
-  justify-content: start;
   align-items: center;
   gap: 0.5rem;
+}
+
+.degree-content{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 0.3rem;
+
+  img {
+    filter: invert(48%) sepia(100%) saturate(362%) hue-rotate(154deg) brightness(93%) contrast(89%);
+    cursor: pointer;
+  }
 }
